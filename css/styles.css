@@ -24,3 +24,13 @@
 .justify{
     text-align: justify;
 }
+
+.tableTitle{
+    text-align: center;
+    text-shadow: -2px 5px #ccc;
+}
+
+.tableTitle .spnt{
+    color: #f3b705;
+    text-shadow: -2px 2px #ccc;
+}
