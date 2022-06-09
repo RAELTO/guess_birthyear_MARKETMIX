@@ -1,0 +1,26 @@
+.row div span{
+    color: #f3b705;
+    text-shadow: -2px 2px #ccc;
+}
+
+.row div h1{
+    text-shadow: -2px 5px #ccc;
+}
+.container{
+    width: 70%;
+    margin: auto;
+}
+
+.card-body .form-control{
+    margin: auto;
+    width: 50%;
+}
+
+.card-body button{
+    width: 10%;
+    font-weight: bold;
+}
+
+.justify{
+    text-align: justify;
+}
