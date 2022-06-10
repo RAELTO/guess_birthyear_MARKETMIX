@@ -6,6 +6,9 @@ var app = new Vue({
         persons: [
             {id: 1, name: 'Elizabeth Olsen', ybirth: '1989'},
             {id: 2, name: 'Ricardo Arjona', ybirth: '1964'},
+            {id: 3, name: 'Robert Downey Jr', ybirth: '1965'},
+            {id: 4, name: 'Emma Stone', ybirth: '1988'},
+            {id: 5, name: 'Anne Hathaway', ybirth: '1982'},
         ],
         users:[//users array to be displayed in the index.html table
             {id: 1, name: 'RAEL', attempts: 1},
@@ -104,7 +107,7 @@ var app = new Vue({
             function random(min, max) {// generates a random number to be used as index of perons array
                 return Math.floor((Math.random() * (max - min + 1)) + min);
             }
-            const rpos = random(0,1);//persons index
+            const rpos = random(0,4);//persons index
     
             this.randomName = this.persons[rpos].name; //display the name in the game view
             this.ranpos = rpos;
@@ -119,7 +122,7 @@ var app = new Vue({
         function random(min, max) {// generates a random number to be used as index of perons array
             return Math.floor((Math.random() * (max - min + 1)) + min);
         }
-        const rpos = random(0,1);//persons index
+        const rpos = random(0,4);//persons index
 
         this.randomName = this.persons[rpos].name; //display the name in the game view
         this.ranpos = rpos;
