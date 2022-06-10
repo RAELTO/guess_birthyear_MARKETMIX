@@ -27,10 +27,10 @@
                     <div class="card-body text-center">
                         <h5 v-text="randomName" class="card-title">NAME HERE</h5>
                         <h5 class="card-title">-----------------------------------------------</span></h5>
-                        <input v-model.number="attempt" type="number" maxlength="4" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input @keyup.enter="tryatt" v-model.number="attempt" type="number" maxlength="4" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         <button type="button" class="btn btn-primary my-5" @click="tryatt" v-if="btntry === 1">Try</button>
                         <div class="justify">
-                            <h5 v-if="showmessage === 1" v-text="message" class="card-title">MESSAGE HERE</h5>
+                            <h5 v-if="showmessage === 1" v-text="message" class="card-title mt-3">MESSAGE HERE</h5>
                             <h5 v-if="showattempts === 1" class="card-title">Remaining Attempts: <span v-text="rattempts">0</span></h5>
                         </div>
                     </div>
@@ -39,9 +39,11 @@
             <div class="col-12" v-if="showreg === 1">
                 <div class="card mt-5">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Save Your Score</h5>
-                        <input v-model="username" type="text" class="form-control mt-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Your name here">
-                        <button @click="reg" type="button" class="btn btn-primary my-5" >Submit</button>
+                        <h5 class="card-title" v-if="restshow === 0">Save Your Score</h5>
+                        <input v-model="username" type="text" class="form-control mt-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Your name here" v-if="restshow === 0">
+                        <button @click="reg" type="button" class="btn btn-primary my-5" v-if="restshow === 0">Submit</button>
+                        <h5 class="card-title mt-3" v-if="restshow === 1">Do you want to try again? press the restart button below</h5>
+                        <button type="button" class="btn btn-success my-2" @click="restart" v-if="restshow === 1">Restart</button>
                     </div>
                 </div>
             </div>
