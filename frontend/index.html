@@ -56,8 +56,8 @@
                             <th>Attempts made</th>
                         </tr>
                     </thead>
-                    <tbody v-if="users.length">
-                        <tr v-for="(item, index) in users" :key="item.id" class="text-center">
+                    <tbody v-if="sorted_users.length">
+                        <tr v-for="(item, index) in sorted_users" :key="item.id" class="text-center">
                             <td v-text="item.name"></td>
                             <td v-text="item.attempts"></td>
                         </tr>

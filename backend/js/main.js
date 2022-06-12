@@ -11,8 +11,8 @@ var app = new Vue({
             {id: 5, name: 'Anne Hathaway', ybirth: '1982'},
         ],
         users:[//users array to be displayed in the index.html table
-            {id: 1, name: 'RAEL', attempts: 1},
-            {id: 2, name: 'test2', attempts: 3},
+            {id: 1, name: 'RAEL', attempts: 2},
+            {id: 2, name: 'test2', attempts: 1},
         ],
         showmessage: 1,//enables the message
         message: '',//shows the main message comparing if the number is > or < than the year
@@ -29,6 +29,7 @@ var app = new Vue({
         username: '',//User name to be added to the array persons
         hintcounter: 0,//counter that enables the dynamic hint message when the amount of pushed times the try button  is even
         restshow: 0,//enables and shows the restart button and message
+        sorted_users: '',//and ordered list that will display the users score in order by number of attempts ----
     },
     methods: {
         tryatt(){
@@ -80,18 +81,14 @@ var app = new Vue({
 
         },
         reg(){
-            if (this.attmcount >= 0 && this.attmcount <= 1){
-                this.users.unshift({
-                    id: this.users.length + 1,
-                    name: this.username,
-                    attempts: this.attmcount
-                });
-            }else if(this.attmcount > 1 && this.attmcount <= 7){
+
+            if(this.attmcount > 0 && this.attmcount <= 7){
                 this.users.push({
                     id: this.users.length + 1,
                     name: this.username,
                     attempts: this.attmcount
                 });
+                this.sortlist();
             }
 
             this.restshow = 1;
@@ -116,6 +113,11 @@ var app = new Vue({
             let list = year;
             list = list.sort(function() {return Math.random() - 0.5}); //sorts the numbers in array randomly
             this.ryearhint = list;
+        },
+        sortlist(){
+            this.sorted_users = this.users.sort(function(a, b){
+                return a.attempts - b.attempts
+            });
         }
     },
     beforeMount(){
@@ -131,5 +133,10 @@ var app = new Vue({
         let list = year;
         list = list.sort(function() {return Math.random() - 0.5}); //sorts the numbers in array randomly
         this.ryearhint = list;
+
+        this.sorted_users = this.users.sort(function(a, b){
+            return a.attempts - b.attempts
+        });
+
     },
 });
